@@ -1,10 +1,12 @@
 {
   "name": "rick-and-morty-api",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000R\u0000i\u0000c\u0000k\u0000 \u0000a\u0000n\u0000d\u0000 \u0000M\u0000o\u0000r\u0000t\u0000y\u0000 \u0000A\u0000P\u0000I\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "description": "Rick and Morty API",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "repository": {
     "type": "git",
@@ -13,12 +15,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/oseyban/Rick-and-Morty-API/issues"
   },
   "homepage": "https://github.com/oseyban/Rick-and-Morty-API#readme",
   "dependencies": {
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-slot": "^1.2.4",
     "@tanstack/react-query": "^5.90.21",
     "@tanstack/react-query-devtools": "^5.91.3",
     "class-variance-authority": "^0.7.1",
@@ -29,6 +32,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^3.5.0",
+    "tailwindcss-animate": "^1.0.7",
     "zustand": "^5.0.11"
   },
   "devDependencies": {
@@ -50,5 +54,6 @@
     "shadcn": "^3.8.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.3"
-  }
+  },
+  "private": "true"
 }
