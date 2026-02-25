@@ -3,6 +3,7 @@
 import { useCharacters } from "@/hooks/use-characters";
 import type { FetchCharactersParams } from "@/lib/api/characters";
 import { CharacterCard } from "@/components/character-card";
+import { Pagination } from "@/components/pagination";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -46,10 +47,13 @@ export function CharacterList({ params }: CharacterListProps) {
   }
 
   return (
-    <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {charactersQuery.data.results.map((character) => (
-        <CharacterCard key={character.id} character={character} />
-      ))}
+    <section>
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {charactersQuery.data.results.map((character) => (
+          <CharacterCard key={character.id} character={character} />
+        ))}
+      </div>
+      <Pagination totalPages={charactersQuery.data.info.pages} />
     </section>
   );
 }

@@ -3,7 +3,6 @@
 import { parseAsInteger, parseAsStringLiteral, useQueryStates } from "nuqs";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -50,7 +49,7 @@ export function Filters({ disabled = false }: FiltersProps) {
         <span>URL state with SSR reload</span>
       </div>
 
-      <div className="grid gap-3 md:grid-cols-3">
+      <div className="grid gap-3 md:grid-cols-2">
         <Select
           disabled={disabled}
           value={filters.status ?? "all"}
@@ -93,26 +92,6 @@ export function Filters({ disabled = false }: FiltersProps) {
             <SelectItem value="unknown">Unknown</SelectItem>
           </SelectContent>
         </Select>
-
-        <div className="flex items-center gap-2">
-          <Button
-            type="button"
-            variant="outline"
-            disabled={disabled || filters.page <= 1}
-            onClick={() => setFilters({ page: Math.max(1, filters.page - 1) })}
-          >
-            Prev
-          </Button>
-          <Badge variant="secondary">Page {filters.page}</Badge>
-          <Button
-            type="button"
-            variant="outline"
-            disabled={disabled}
-            onClick={() => setFilters({ page: filters.page + 1 })}
-          >
-            Next
-          </Button>
-        </div>
       </div>
     </section>
   );
