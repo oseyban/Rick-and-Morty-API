@@ -2,10 +2,7 @@ import { create } from "zustand";
 
 import type { Character } from "@/types/character";
 
-export type SelectedCharacter = Pick<
-  Character,
-  "id" | "name" | "image" | "status" | "gender"
->;
+export type SelectedCharacter = Pick<Character, "id" | "name" | "image" | "status" | "gender">;
 
 export interface SelectedCharactersState {
   selectedCharacters: Record<number, SelectedCharacter>;

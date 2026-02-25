@@ -9,7 +9,9 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export function SelectedCharactersSummary() {
   const selectedCharacters = useSelectedCharactersStore((state) => state.selectedCharacters);
-  const clearSelectedCharacters = useSelectedCharactersStore((state) => state.clearSelectedCharacters);
+  const clearSelectedCharacters = useSelectedCharactersStore(
+    (state) => state.clearSelectedCharacters,
+  );
 
   const selectedList = useMemo(() => Object.values(selectedCharacters), [selectedCharacters]);
 

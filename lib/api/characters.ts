@@ -1,8 +1,4 @@
-import type {
-  CharacterGender,
-  CharactersResponse,
-  CharacterStatus,
-} from "@/types/character";
+import type { CharacterGender, CharactersResponse, CharacterStatus } from "@/types/character";
 
 const rickAndMortyBaseUrl = process.env.RICK_AND_MORTY_BASE_URL;
 

@@ -13,7 +13,12 @@ import {
 import type { CharacterGender, CharacterStatus } from "@/types/character";
 
 const STATUS_OPTIONS = ["alive", "dead", "unknown"] as const satisfies readonly CharacterStatus[];
-const GENDER_OPTIONS = ["female", "male", "genderless", "unknown"] as const satisfies readonly CharacterGender[];
+const GENDER_OPTIONS = [
+  "female",
+  "male",
+  "genderless",
+  "unknown",
+] as const satisfies readonly CharacterGender[];
 
 const statusParser = parseAsStringLiteral(STATUS_OPTIONS);
 const genderParser = parseAsStringLiteral(GENDER_OPTIONS);

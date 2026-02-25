@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import type { Character } from "@/types/character";
 import { cn } from "@/lib/utils";
 import { useSelectedCharactersStore } from "@/stores/selected-characters-store";
@@ -12,7 +14,9 @@ interface CharacterCardProps {
 }
 
 export function CharacterCard({ character }: CharacterCardProps) {
-  const isSelected = useSelectedCharactersStore((state) => Boolean(state.selectedCharacters[character.id]));
+  const isSelected = useSelectedCharactersStore((state) =>
+    Boolean(state.selectedCharacters[character.id]),
+  );
   const toggleCharacter = useSelectedCharactersStore((state) => state.toggleCharacter);
 
   const handleToggle = () => {
@@ -28,9 +32,11 @@ export function CharacterCard({ character }: CharacterCardProps) {
   return (
     <Card className={cn(isSelected && "ring-2 ring-slate-900")}>
       <CardContent className="p-0">
-        <img
+        <Image
           src={character.image}
           alt={character.name}
+          width={300}
+          height={300}
           className="h-56 w-full rounded-t-xl object-cover"
         />
       </CardContent>
