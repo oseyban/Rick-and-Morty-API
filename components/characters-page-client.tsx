@@ -4,6 +4,7 @@ import { useCharacters } from "@/hooks/use-characters";
 import type { FetchCharactersParams } from "@/lib/api/characters";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Filters } from "@/components/filters";
 
 interface CharactersPageClientProps {
   params: FetchCharactersParams;
@@ -58,6 +59,7 @@ export function CharactersPageClient({ params }: CharactersPageClientProps) {
           {params.page ?? 1}
         </p>
       </header>
+      <Filters />
       <CharactersList params={params} />
     </main>
   );
