@@ -1,52 +1,11 @@
 "use client";
 
-import { useCharacters } from "@/hooks/use-characters";
 import type { FetchCharactersParams } from "@/lib/api/characters";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CharacterList } from "@/components/character-list";
 import { Filters } from "@/components/filters";
 
 interface CharactersPageClientProps {
   params: FetchCharactersParams;
-}
-
-function CharactersList({ params }: { params: FetchCharactersParams }) {
-  const charactersQuery = useCharacters(params);
-
-  if (charactersQuery.isError) {
-    return (
-      <Card>
-        <CardContent className="pt-6 text-sm text-red-600">
-          {charactersQuery.error.message}
-        </CardContent>
-      </Card>
-    );
-  }
-
-  if (!charactersQuery.data) {
-    return (
-      <Card>
-        <CardContent className="pt-6 text-sm text-slate-600">Loading...</CardContent>
-      </Card>
-    );
-  }
-
-  return (
-    <section className="grid gap-4 md:grid-cols-2">
-      {charactersQuery.data.results.map((character) => (
-        <Card key={character.id}>
-          <CardHeader className="flex-row items-center justify-between space-y-0">
-            <CardTitle className="text-base">{character.name}</CardTitle>
-            <Badge variant="secondary">{character.status}</Badge>
-          </CardHeader>
-          <CardContent className="space-y-1 text-sm text-slate-600">
-            <p>Gender: {character.gender}</p>
-            <p>Species: {character.species}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </section>
-  );
 }
 
 export function CharactersPageClient({ params }: CharactersPageClientProps) {
@@ -60,7 +19,7 @@ export function CharactersPageClient({ params }: CharactersPageClientProps) {
         </p>
       </header>
       <Filters />
-      <CharactersList params={params} />
+      <CharacterList params={params} />
     </main>
   );
 }
