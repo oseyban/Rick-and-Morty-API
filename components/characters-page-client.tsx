@@ -3,6 +3,7 @@
 import type { FetchCharactersParams } from "@/lib/api/characters";
 import { CharacterList } from "@/components/character-list";
 import { Filters } from "@/components/filters";
+import { SelectedCharactersSummary } from "@/components/selected-characters-summary";
 
 interface CharactersPageClientProps {
   params: FetchCharactersParams;
@@ -19,6 +20,7 @@ export function CharactersPageClient({ params }: CharactersPageClientProps) {
         </p>
       </header>
       <Filters />
+      <SelectedCharactersSummary />
       <CharacterList params={params} />
     </main>
   );
