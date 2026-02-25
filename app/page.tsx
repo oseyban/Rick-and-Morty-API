@@ -1,6 +1,7 @@
 import { dehydrate } from "@tanstack/react-query";
 
 import { CharactersPageClient } from "@/components/characters-page-client";
+import { QueryProvider } from "@/components/query-provider";
 import { charactersQueryKey } from "@/hooks/use-characters";
 import { fetchCharacters, type FetchCharactersParams } from "@/lib/api/characters";
 import { createQueryClient } from "@/lib/react-query/query-client";
@@ -60,5 +61,9 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   const dehydratedState = dehydrate(queryClient);
 
-  return <CharactersPageClient dehydratedState={dehydratedState} params={queryParams} />;
+  return (
+    <QueryProvider dehydratedState={dehydratedState}>
+      <CharactersPageClient params={queryParams} />
+    </QueryProvider>
+  );
 }

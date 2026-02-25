@@ -1,8 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 
-import { Providers } from "./providers";
-
 export const metadata: Metadata = {
   title: "Rick and Morty API",
   description: "Rick and Morty characters",
@@ -11,9 +9,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
-        <Providers>{children}</Providers>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
